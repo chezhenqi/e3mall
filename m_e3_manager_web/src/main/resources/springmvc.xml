@@ -21,10 +21,13 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<!-- 放开静态资源  -->
+	<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources location="/js/" mapping="/js/**"/>
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="m_e3_manager_web" />
 	<dubbo:registry protocol="zookeeper"
-		address="192.168.8.128:2181,192.168.8.128:2182,192.168.8.128:2183" />
+		address="192.168.8.128:2181" />
 	<dubbo:reference interface="cn.che.e3mall.service.TbItemService"
 		id="itemService" />
 </beans>
